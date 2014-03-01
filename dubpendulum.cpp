@@ -15,6 +15,8 @@ int main() {
     // Create the moving (mobilized) bodies of the pendulum.
     MobilizedBody::Pin pend1(matter.Ground(), Transform(Vec3(0)),
             pendBody, Transform(Vec3(0, 1, 0)));
+    MobilizedBody::Pin pend2(pend1, Transform(Vec3(0)),
+            pendBody, Transform(Vec3(0, 1, 0)));
 
     // Set up visualization.
     Visualizer viz(sys);
@@ -23,7 +25,7 @@ int main() {
     // Initialize the system and state.
     sys.realizeTopology();
     State state = sys.getDefaultState();
-    pend1.setRate(state, 3.0);
+    pend2.setRate(state, 5.0);
 
     // Simulate for 50 seconds.
     RungeKuttaMersonIntegrator integ(sys);
