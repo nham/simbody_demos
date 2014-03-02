@@ -18,6 +18,8 @@ int main() {
 
     // Set up visualization.
     Visualizer viz(sys);
+    viz.setBackgroundType(Visualizer::SolidColor);
+    viz.setBackgroundColor(Vec3(1, 1, 1));
     sys.addEventReporter(new Visualizer::Reporter(viz, 0.01));
 
     // Initialize the system and state.
